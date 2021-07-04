@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>anywrite</title>
-</head>
-<body>
-    
-</body>
-</html>
+<?php
+$rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+echo $rootPath.'/includes/componets/header.php';
+
+include($rootPath.'/includes/componets/header.php');
+
+?>
