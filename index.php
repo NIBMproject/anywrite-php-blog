@@ -21,7 +21,8 @@ if (isset($_GET['page'])){
 
 <body>
     <?php
-
+    require_once('includes/db.php');
+    require_once('includes/validation.php');
 
     include_once('views/ui/nav.php');
 
