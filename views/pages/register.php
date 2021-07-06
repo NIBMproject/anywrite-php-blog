@@ -118,7 +118,7 @@
         }
     }
 
-    var off = function(x){
+    var off = function(x) {
         x.style.display = "none";
     }
 </script>
@@ -153,21 +153,22 @@ if (isset($_POST["submit"])) {
 }
 
 ?>
-<?php if(isset($v['isOk'])) :?>
-<?php if($v['isOk']==false) :?>
-<div class="overlay" onclick="off(this)">
-    <div class="validation-errors">
-        <ul>
-            <?php
+<?php if (isset($v['isOk'])) : ?>
+    <?php if ($v['isOk'] == false) : ?>
+        <div class="overlay" onclick="off(this)">
+            <div class="validation-errors">
+                <ul>
+                    <?php
 
-            foreach ($v['errors'] as $e) {
-                echo "<li>{$e}</li>";
-            }
+                    foreach ($v['errors'] as $e) {
+                        echo "<li>{$e}</li>";
+                    }
 
-            ?>
-        </ul>
+                    ?>
+                </ul>
 
-    </div>
-</div>
-<?php endif;?>
-<?php endif;?>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+
