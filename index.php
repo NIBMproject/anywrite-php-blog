@@ -1,5 +1,5 @@
 <?php
-$rootPath = $_SERVER['DOCUMENT_ROOT'];
+
 
 
 if (isset($_GET['page'])){
@@ -16,18 +16,18 @@ if (isset($_GET['page'])){
 <html lang="en">
 
 <head>
-    <?php include_once($rootPath . '/views/ui/header.php'); ?>
+    <?php include_once( 'views/ui/header.php'); ?>
 </head>
 
 <body>
     <?php
 
 
-    include_once($rootPath . '/views/ui/nav.php');
+    include_once('views/ui/nav.php');
 
-    include_once($rootPath.'/views/pages/'.$page.'.php');
+    include_once('views/pages/'.$page.'.php');
 
-    include_once($rootPath . '/views/ui/footer.php');
+    include_once('views/ui/footer.php');
     ?>
 </body>
 

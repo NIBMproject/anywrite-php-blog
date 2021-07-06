@@ -9,7 +9,10 @@
             <div class="col-3">
                 <div class="row">
                     <div>
-                        <h1>image</h1>
+                        <img src="" alt="">
+                        <div>
+                            <input type="file">
+                        </div>
                     </div>
                 </div>
             </div>
