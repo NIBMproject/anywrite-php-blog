@@ -1,1 +1,3 @@
 # anywrite
+
+-[] writer register
