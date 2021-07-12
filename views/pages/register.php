@@ -1,12 +1,34 @@
+
+
+
 <div class="container ptb-80">
 
-
+<?php
+session_start();
+// print_r($_SESSION['v_errors']);
+if($_SESSION['msg']){
+?>
+    <div class="row">
+        <div class="col-12">
+            <div class="<?php echo $_SESSION['msg'][0] ?>">
+                <ul>
+                    <?php
+                    foreach($_SESSION['msg'][1] as $i){
+                        echo "<li>{$i}</li>";
+                    }
+                    unset($_SESSION['msg']);                    
+                    ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+<?php } ?>
     <div class="row ">
         <div class="col-12">
             <h1 class="title">Register</h1>
         </div>
     </div>
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="http/user_register.php" method="post" enctype="multipart/form-data">
 
         <div class="row">
             <div class="col-3">
@@ -96,12 +118,7 @@
 
                     </div>
 
-
                 </div>
-
-
-
-
 
             </div>
         </div>
@@ -123,52 +140,4 @@
     }
 </script>
 
-<!-- validation -->
-<?php
-
-if (isset($_POST["submit"])) {
-    // print_r($_POST);
-    $vali = new Validation();
-    $cns = [
-        'tp' => 'telephone number',
-        'addr' => 'address',
-        'dob' => 'date of birth',
-
-    ];
-    $ruls = [
-        "name" => ["require" => 1, "max" => 100],
-        "email" => ["require" => 1, "max" => 200],
-        "tp" => ["require" => 1, "max" => 11],
-        "addr" => ["require" => 1, "max" => 250],
-        "utype" => ["require" => 1],
-        "dob" => ["require" => 1],
-        "password" => ["require" => 1],
-        "cpassword" => ["equalTo" => "password"],
-
-
-    ];
-
-
-    $v = $vali->validate($_POST, $ruls, $cns);
-}
-
-?>
-<?php if (isset($v['isOk'])) : ?>
-    <?php if ($v['isOk'] == false) : ?>
-        <div class="overlay" onclick="off(this)">
-            <div class="validation-errors">
-                <ul>
-                    <?php
-
-                    foreach ($v['errors'] as $e) {
-                        echo "<li>{$e}</li>";
-                    }
-
-                    ?>
-                </ul>
-
-            </div>
-        </div>
-    <?php endif; ?>
-<?php endif; ?>
 
