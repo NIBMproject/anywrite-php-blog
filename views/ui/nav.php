@@ -1,17 +1,21 @@
 <div class="nav-bar">
-    <div class="left-nav-items">
-        <ul class="nav-item-group">
-            <li>Any<i class="fa fa-pencil" aria-hidden="true"></i>Write</li>
-            <li><a href="?page=home"><i class="fa fa-home" aria-hidden="true"></i> Home</a> </li>
-            <li><a href="?page=top10"><i class="fa fa-star" aria-hidden="true"></i> Top 10</a></li>
+    <nav>
+        <p>AnyWrite</p>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Top 10</a></li>
+
+            <li><a href="">username</a>
+                <ul>
+                    <li><a href="">New Article</a></li>
+                    <li><a href="">Profile</a></li>
+                    <hr>
+                    <li><a href="">Logout</a></li>
+                </ul>
+            </li>
+            <li><a href="">Log in</a></li>
+            <li><a href="">Register</a></li>
         </ul>
-    </div>
-    <div class="right-nav-items">
-    <ul class="nav-item-group">
-            <!-- <li>Any<i class="fa fa-pencil" aria-hidden="true"></i>Write</li> -->
-            <li><a href="?page=login">Loing</a> </li>
-            <li><a href="?page=register"> Reister</a></li>
-        </ul>
-    </div>
+    </nav>
 </div>
 <br>

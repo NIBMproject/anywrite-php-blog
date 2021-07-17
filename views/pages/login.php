@@ -1,29 +1,31 @@
 <div class="container ptb-80">
 
     <?php
-    session_start();
+
     if (isset($_SESSION)) {
     ?>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="<?php echo $_SESSION['msg'][0]; ?>">
-                    <ul>
-                        <?php
-                        foreach ($_SESSION['msg'][1] as $i) {
-                            echo "<li>{$i}</li>";
-                        }
-                        unset($_SESSION['msg']);
-                        ?>
-                    </ul>
+        <div class="login-form">
+            <div class="row">
+                <div class="col-12">
+                    <div class="<?php echo $_SESSION['msg'][0]; ?>">
+                        <ul>
+                            <?php
+                            foreach ($_SESSION['msg'][1] as $i) {
+                                echo "<li>{$i}</li>";
+                            }
+                            unset($_SESSION['msg']);
+                            ?>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
 
+
     <?php } ?>
 
     <form action="http/user_login.php" method="post">
-        <div class="row login-form" >
+        <div class="row login-form">
             <div class="col-12 ">
                 <div class="login-form">
                     <div class="row">

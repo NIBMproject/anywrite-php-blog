@@ -4,7 +4,7 @@
 <div class="container ptb-80">
 
 <?php
-session_start();
+// session_start();
 // print_r($_SESSION['v_errors']);
 if($_SESSION['msg']){
 ?>
