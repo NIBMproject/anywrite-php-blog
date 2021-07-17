@@ -322,3 +322,46 @@ label {
   }
 }
 
+@media only screen and (min-width: 768px) {
+    .validation-errors {
+        width: 60%;
+      
+        margin: 100px auto;
+        background-color: #f5a962;
+        padding: 50px;
+        border: 5px solid #ff4646;
+        border-radius: 4px;
+      }
+}
+
+.validation-errors ul li {
+    font-family: Arial;
+    font-size: 20px;
+    color: #ff4646;
+    font-weight: bold;
+  }
+
+  /* CSS of articles */
+
+  .fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .container{
+    margin: auto;
+  }
+
+  .container div{
+    border:1px #acc solid;
+    padding: 10px;
+    padding-bottom: 30px;
+  }
+
+  .btn{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+  }
