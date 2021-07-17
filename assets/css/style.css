@@ -283,3 +283,28 @@ label {
     color: #ff4646;
     font-weight: bold;
   }
+
+  /* CSS of articles */
+
+  .fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .container{
+    margin: auto;
+  }
+
+  .container div{
+    border:1px #acc solid;
+    padding: 10px;
+    padding-bottom: 30px;
+  }
+
+  .btn{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+  }
