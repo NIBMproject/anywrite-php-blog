@@ -71,7 +71,7 @@ if (isset($_POST["submit"])) {
         ]);
 
 
-        $fo->newFile($_FILES['myfile'], 'assets/img/profiles/', $_POST['email']);
+        $fo->newFile($_FILES['myfile'], '../assets/img/profiles/', $_POST['email']);
         $_SESSION['msg'] = ['success',['Hi! your account is created. enter email and password for login']];
         header("Location: ../?page=login");
 

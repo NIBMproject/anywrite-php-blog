@@ -36,7 +36,7 @@ if($_SESSION['msg']){
                     <div class="up-img-btn">
                         <img src="assets/img/up.png" class="w-100" alt="" id="upimg">
                         <div class="upload-btn">
-                            <button class="p-btn w-100">Select Image</button>
+                            <button class="btn w-100">Select Image</button>
                             <input type="file" name="myfile" id="file" onchange="loadFile(event)" />
                         </div>
                     </div>
@@ -113,7 +113,7 @@ if($_SESSION['msg']){
 
                         <!-- <button class="p-btn align-r m-20-0 w-100" type="submit">Submit</button> -->
                         <div class="form-group w-100">
-                            <input type="submit" value="Submit" name="submit" class="p-btn ">
+                            <input type="submit" value="Submit" name="submit" class="btn ">
                         </div>
 
                     </div>

@@ -56,7 +56,7 @@
 
                             <!-- <button class="p-btn align-r m-20-0 w-100" type="submit">Submit</button> -->
                             <div class="form-group w-100">
-                                <input type="submit" value="Login" name="submit" class="p-btn ">
+                                <input type="submit" value="Login" name="submit" class="btn ">
                             </div>
 
                         </div>

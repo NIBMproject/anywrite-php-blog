@@ -26,7 +26,7 @@ $title = "blog | " . $page;
     require_once('includes/fo.php');
 
     include_once('views/ui/nav.php');
-
+    // echo "<br><br>";
     include_once('views/pages/' . $page . '.php');
 
     include_once('views/ui/footer.php');

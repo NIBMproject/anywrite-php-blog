@@ -85,6 +85,9 @@ class Validation
         //ruls 
         //maxsize in mb
         //types
+        
+        // print_r($file);
+        
         if ($file['name'] != "") {
             if ($file['size'] > ($ruls['maxsize'] * 1024 * 1024)) {
                 array_push($this->errorList, "{$cn} size is too big");
@@ -94,6 +97,12 @@ class Validation
             if (!in_array(explode("/", $file['type'])[1], $ruls['types'])) {
 
                 array_push($this->errorList, "Invalid file type");
+                $this->isok = $this->isok && false;
+            }
+        }else{
+            // echo "no file";
+            if($ruls['require'] == 1){
+                array_push($this->errorList, "{$cn} is required!");
                 $this->isok = $this->isok && false;
             }
         }

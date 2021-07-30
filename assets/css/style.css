@@ -353,18 +353,22 @@ label {
     margin: auto;
   }
 
-  .container div{
+  /* .container div{
     border:1px #acc solid;
     padding: 10px;
     padding-bottom: 30px;
-  }
+  } */
 
   .btn{
-    background-color: #333;
+    background-color: #125d9a;
     color: #fff;
     padding: 10px 15px;
     border: none;
   }
+
+  /* .articles{
+    z-index: -1;
+  } */
 
   body {margin:0;font-family:Arial}
 
@@ -385,7 +389,7 @@ label {
   overflow: hidden;
   background-color: #333;
   padding: 10px;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
 }
 
@@ -508,3 +512,4 @@ label {
     display: block;
   }
 }
+
