@@ -6,7 +6,7 @@
   margin: 0px;
 
   width: 100%;
-  background-color: #dddddd;
+  background-color: #125d98;
   position: fixed;
   top: 0;
   box-shadow: 0px 0px 10px #3c8dad;
@@ -387,7 +387,7 @@ label {
 
 .topnav {
   overflow: hidden;
-  background-color: #333;
+  background-color: #125d98;
   padding: 10px;
   /* position: fixed; */
   width: 100%;
@@ -451,7 +451,7 @@ label {
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: #555;
+  background-color: #dddddd22;
   color: white;
   border-radius: 5px;
 }
