@@ -6,7 +6,7 @@
   margin: 0px;
 
   width: 100%;
-  background-color: #125d98;
+  background-color: #dddddd;
   position: fixed;
   top: 0;
   box-shadow: 0px 0px 10px #3c8dad;
@@ -353,22 +353,18 @@ label {
     margin: auto;
   }
 
-  /* .container div{
+  .container div{
     border:1px #acc solid;
     padding: 10px;
     padding-bottom: 30px;
-  } */
+  }
 
   .btn{
-    background-color: #125d9a;
+    background-color: #333;
     color: #fff;
     padding: 10px 15px;
     border: none;
   }
-
-  /* .articles{
-    z-index: -1;
-  } */
 
   body {margin:0;font-family:Arial}
 
@@ -387,10 +383,9 @@ label {
 
 .topnav {
   overflow: hidden;
-  background-color: #125d98;
+  background-color: #333;
   padding: 10px;
-  /* position: fixed; */
-  width: 100%;
+  position: fixed;
 }
 
 .topnav .nav{
@@ -451,7 +446,7 @@ label {
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: #dddddd22;
+  background-color: #555;
   color: white;
   border-radius: 5px;
 }
@@ -512,4 +507,3 @@ label {
     display: block;
   }
 }
-
