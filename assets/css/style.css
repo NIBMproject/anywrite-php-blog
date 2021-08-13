@@ -203,7 +203,8 @@ label {
   width: 100%;
 }
 
-.p-btn {
+.p-
+ {
   padding: 10px 20px;
   background-color: #f5a962;
   color: #125d98;
@@ -364,7 +365,10 @@ label {
     color: #fff;
     padding: 10px 15px;
     border: none;
+    border-radius: 4px;
+
   }
+
 
   /* .articles{
     z-index: -1;
@@ -513,3 +517,32 @@ label {
   }
 }
 
+.article-image{
+  object-fit: cover;
+  width: 100%;
+  height: 20rem;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.article-card{
+  margin: 10px;
+  /*margin-bottom: 20px;*/
+  border-radius: 4px;
+  /*border: 1px solid gray;*/
+  /*box-shadow: 0px 0px 10px gray;*/
+  /*padding-bottom: 40px;*/
+  padding: 10px 10px 20px 10px;
+  transition: 0.2s ;
+}
+
+.article-card:hover{
+  box-shadow: 0px 0px 10px gray;
+}
+
+.article-btn{
+  float: right;
+}
+.page-links{
+  text-align: center;
+}

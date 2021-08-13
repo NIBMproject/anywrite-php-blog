@@ -63,6 +63,12 @@ class Db
     {
         return $this->conn->query($q);
     }
+
+    public function findDataById($table,$id,$col){
+        $r = $this->conn->query("SELECT {$col} FROM {$table} WHERE id = '{$id}';");
+        $data = $r->fetch_assoc();
+        return $data[$col];
+    }
 }
 
  
