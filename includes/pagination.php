@@ -23,7 +23,7 @@ class Pagination{
 
 		$r = $db->queryExecute("SELECT count(id) as c FROM {$tableName}");
 		$data = $r->fetch_assoc();
-		$this->pageCount =  round(($data['c']/$limit));
+		$this->pageCount = ceil(($data['c']/$limit));
 		
 
 
