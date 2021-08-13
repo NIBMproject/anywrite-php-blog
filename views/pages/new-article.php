@@ -84,6 +84,6 @@
 
 <?php else : ?>
 
-    <h1>error</h1>
+    <h1>Please Log in</h1>
 
 <?php endif; ?>

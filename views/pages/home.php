@@ -8,7 +8,19 @@
         <div class="col-8">
             <?php
             $db = new Db();
-            $r =  $db->queryExecute("select * from article;");
+            $pg = new Pagination("article",5);
+
+            if(isset($_GET['p']) == false ){
+                $r = $pg->getPageContent(1);
+            }else{
+               
+                $r = $pg->getPageContent($_GET['p']);
+                
+            }
+
+            // $r = $pg->getPageContent();
+            // $r =  $db->queryExecute("select * from article order by createAt desc;");
+
             ?>
             <?php
             if ($r->num_rows > 0) {
@@ -21,6 +33,16 @@
                     </div>
             <?php }
             }; ?>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <?php
+                    $pg->getLinks();
+                 ?>
+            </div>
         </div>
         <div class="col-4">
             <h2>Tags</h2>
