@@ -59,9 +59,22 @@ class Db
         return $r->num_rows;
     }
 
+    public function getDataCountTable($table)
+    {
+        $q = "SELECT id FROM {$table}";
+        $r = $this->conn->query($q);
+        return $r->num_rows;
+    }
+
     public function queryExecute($q)
     {
         return $this->conn->query($q);
+    }
+
+    public function findDataById($table,$id,$col){
+        $r = $this->conn->query("SELECT {$col} FROM {$table} WHERE id = '{$id}';");
+        $data = $r->fetch_assoc();
+        return $data[$col];
     }
 }
 

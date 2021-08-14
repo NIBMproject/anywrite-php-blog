@@ -20,29 +20,26 @@ class Pagination{
 		$db = new Db();
 		$this->tableName = $tableName;
 		$this->limit = $limit;
-
-		$r = $db->queryExecute("SELECT count(id) as c FROM {$tableName}");
-		$data = $r->fetch_assoc();
-		$this->pageCount = ceil(($data['c']/$limit));
-		
-
-
-		// echo $this->pageCount.'-';
-
-
 	}
 
-	public function getPageContent($pageNo){
+	public function getPageContent($pageNo,$category,$q){
 		$db = new Db();
 		$this->pageNo = $pageNo;
 		$this->currentStartLocation = ($this->pageNo -1 )*$this->limit;
-		$this->lastPage = $this->pageCount;
-
 		$this->nextPage = $pageNo + 1;
 		$this->backPage = $pageNo -1;
 		// echo $this->currentStartLocation;
 
-		$r = $db->queryExecute("SELECT * FROM {$this->tableName} ORDER BY createAt DESC LIMIT {$this->currentStartLocation},{$this->limit}");
+		if($category == 0){
+			$sqlq = "SELECT * FROM {$this->tableName} ORDER BY createAt DESC LIMIT {$this->currentStartLocation},{$this->limit}";
+			$this->pageCount = ceil(($db->getDataCountTable($this->tableName)/$this->limit));
+		}else{
+			$sqlq = "SELECT * FROM {$this->tableName} WHERE category_id = '{$category}' ORDER BY createAt DESC LIMIT {$this->currentStartLocation},{$this->limit}";
+			$this->pageCount = ceil(($db->getDataCount($this->tableName,"category_id",$category)/$this->limit));
+		}
+
+		$r = $db->queryExecute($sqlq);
+		$this->lastPage = $this->pageCount;
 		// while($data = $r->fetch_assoc()){
 		// 	echo $data['id'].'-'.$data['title']."<br>";
 		// }
@@ -61,6 +58,7 @@ class Pagination{
 			$np = "<a class='btn' href='?page=home&p={$this->nextPage}'>Next</a>";
 		}
 		
+
 		
 		$links = "
 		<p>
@@ -71,6 +69,13 @@ class Pagination{
 		<a class='btn' href = '?page=home&p={$this->lastPage}'>Last</a>
 		</p>
 		";
+
+		if($this->pageCount == 0 ){
+			$links = "
+				<h3>Nothing found</h3>
+			";
+		}
+
 		echo $links;
 
 	}

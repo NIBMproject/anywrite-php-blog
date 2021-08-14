@@ -25,6 +25,7 @@ $title = "blog | " . $page;
     require_once('includes/validation.php');
     require_once('includes/fo.php');
     require_once('includes/pagination.php');
+    require_once('includes/util.php');
 
     include_once('views/ui/nav.php');
     // echo "<br><br>";
