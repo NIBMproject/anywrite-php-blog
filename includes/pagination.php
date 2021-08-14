@@ -1,6 +1,6 @@
 
 <?php
-
+session_start();
 require_once("db.php");
 class Pagination{
 
@@ -50,23 +50,23 @@ class Pagination{
 		if($this->backPage < 1){
 			$bp = "";
 		}else{
-			$bp = "<a class='btn' href='?page=home&p={$this->backPage}'>Back</a>";
+			$bp = "<a class='btn' href='?page=home&p={$this->backPage}&c={$_SESSION['cid']}&s='>Back</a>";
 		}
 		if($this->nextPage > $this->lastPage){
 			$np = "";
 		}else{
-			$np = "<a class='btn' href='?page=home&p={$this->nextPage}'>Next</a>";
+			$np = "<a class='btn' href='?page=home&p={$this->nextPage}&c={$_SESSION['cid']}&s='>Next</a>";
 		}
 		
 
 		
 		$links = "
 		<p>
-		<a class='btn' href='?page=home&p=1'>Frist</a>
+		<a class='btn' href='?page=home&p=1&c={$_SESSION['cid']}&s='>Frist</a>
 		{$bp}
 		{$this->pageNo} of {$this->pageCount}
 		{$np}
-		<a class='btn' href = '?page=home&p={$this->lastPage}'>Last</a>
+		<a class='btn' href = '?page=home&p={$this->lastPage}&c={$_SESSION['cid']}&s='>Last</a>
 		</p>
 		";
 

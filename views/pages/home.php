@@ -9,14 +9,15 @@
 
             <?php
             $db = new Db();
-            $pg = new Pagination("article",5);
+            $pg = new Pagination("article",1);
             $util = new Util();
 
             if(isset($_GET['p']) == false && isset($_GET['c']) == false && isset($_GET['q']) == false){
+                $_SESSION['cid'] = 0;
                 $r = $pg->getPageContent(1,0,"");
             }else{
-               
-                $r = $pg->getPageContent($_GET['p'],$_GET['c'],$_GET['q']);
+                $_SESSION['cid'] = $_GET['c'];
+                $r = $pg->getPageContent($_GET['p'],$_SESSION['cid'],$_GET['q']);
                 
             }
 
