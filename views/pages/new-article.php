@@ -47,7 +47,7 @@
                     <!-- <textarea name="contex" id="editor" colo>
 
                 </textarea> -->
-                    <textarea name="contex" id="" style="width: 100%;" cols="30" rows="10"></textarea>
+                    <textarea name="contex" id="" style="width: 100%;" cols="30" rows="20"></textarea>
 
                     <div class="row">
                         <div class="col-2 align-r">
@@ -79,6 +79,13 @@
         var off = function(x) {
             x.style.display = "none";
         }
+
+        CKEDITOR.replace( 'contex' ,{
+            removeButtons: 'Cut,Copy,Paste,Undo,Redo,Anchor,image',
+            contentsCss: "body {font-size: 20px;}",
+
+        });
+         CKEDITOR.config.height = 500;
     </script>
 
 

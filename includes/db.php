@@ -59,6 +59,13 @@ class Db
         return $r->num_rows;
     }
 
+    public function getDataCountTable($table)
+    {
+        $q = "SELECT id FROM {$table}";
+        $r = $this->conn->query($q);
+        return $r->num_rows;
+    }
+
     public function queryExecute($q)
     {
         return $this->conn->query($q);

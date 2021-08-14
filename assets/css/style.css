@@ -52,9 +52,9 @@ a {
   text-decoration: none;
   font-family: Arial;
 }
-li {
+/*li {
   color: #125d98;
-}
+}*/
 
 h1,
 h2,
@@ -533,7 +533,7 @@ label {
   /*box-shadow: 0px 0px 10px gray;*/
   /*padding-bottom: 40px;*/
   padding: 10px 10px 20px 10px;
-  transition: 0.2s ;
+  transition: 0.5s ;
 }
 
 .article-card:hover{
@@ -545,4 +545,30 @@ label {
 }
 .page-links{
   text-align: center;
+}
+.article-user-image{
+  width: 80%;
+  padding: 10px;
+  border-radius: 50px;
+}
+.article-user-data{
+  padding: 15px 10px 10px 0px;
+  margin-left: -20px;
+}
+.article-u-name{
+  font-family: arial;
+  font-weight: bold;
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+.article-p-time{
+  color: gray;
+}
+
+.cate-list ul li{
+  list-style-type: none;
+  font-size: 18px;
+  border-bottom: 1px solid #bbbbbb;
+  padding-top: 10px;
 }
