@@ -8,7 +8,7 @@ if (isset($_GET['page'])) {
     $page = 'home';
 }
 
-$title = "blog | " . $page;
+$title = "AnyWrite | " . $page;
 
 ?>
 
