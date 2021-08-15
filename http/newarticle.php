@@ -57,7 +57,8 @@ if (isset($_POST["submit"])) {
             "title" => $_POST['title'],
             "content" => $_POST['contex'],
             "image" => $img_path,
-            "user_id" => $_SESSION['user']['id']
+            "user_id" => $_SESSION['user']['id'],
+            "category_id" => 1,
         ]);
 
 

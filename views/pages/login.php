@@ -62,6 +62,10 @@
                         </div>
 
                     </div>
+                    <div class="row" id="signup-link">
+                        <hr>
+                        <a  href="?page=register">if you don't have account click here to sign up</a>
+                    </div>
                 </div>
             </div>
         </div>

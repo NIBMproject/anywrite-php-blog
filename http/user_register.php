@@ -39,7 +39,7 @@ if (isset($_POST["submit"])) {
 
     $vali->validate($_POST, $ruls, $cns);
 
-    $vali->fileValidation($_FILES['myfile'], ['maxsize' => 1, 'types' => ['png', 'jpg', 'jpeg']], "Image");
+    $vali->fileValidation($_FILES['myfile'], ['maxsize' => 1,"require" => 0 ,'types' => ['png', 'jpg', 'jpeg']], "Image");
 
     // print_r($vali->errorList);
     // echo $vali->isok;

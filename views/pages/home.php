@@ -9,26 +9,24 @@
 
             <?php
             $db = new Db();
-            $pg = new Pagination("article",1);
+            $pg = new Pagination("article",5);
             $util = new Util();
 
             if(isset($_GET['p']) == false && isset($_GET['c']) == false && isset($_GET['q']) == false){
-                $_SESSION['cid'] = 0;
+
+                $_SESSION['cid'] = 0;                
                 $r = $pg->getPageContent(1,0,"");
             }else{
-                $_SESSION['cid'] = $_GET['c'];
+                
+                $_SESSION['cid'] = $_GET['c'];                
                 $r = $pg->getPageContent($_GET['p'],$_SESSION['cid'],$_GET['q']);
                 
             }
 
-            // $r = $pg->getPageContent();
-            // $r =  $db->queryExecute("select * from article order by createAt desc;");
 
             ?>
 
-            <div class="row">
-                <input type="text" name="">
-            </div>
+
 
             <?php
             if ($r->num_rows > 0) {
