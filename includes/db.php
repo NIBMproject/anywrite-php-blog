@@ -76,6 +76,17 @@ class Db
         $data = $r->fetch_assoc();
         return $data[$col];
     }
+
+    public function findRowById($table,$id){
+        $r = $this->conn->query("SELECT * FROM {$table} WHERE id = '{$id}';");
+        $data = $r->fetch_assoc();
+        return $data;
+    }
+
+    public function updateCellById($table,$id,$col,$value){
+        $r = $this->conn->query("UPDATE {$table} SET {$col} = {$value} WHERE id = {$id}");
+        return $r;
+    }
 }
 
  

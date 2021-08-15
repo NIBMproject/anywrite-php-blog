@@ -21,7 +21,8 @@ if (isset($_POST["submit"])) {
     ];
     $ruls = [
         "title" => ["require" => 1, "max" => 100],           
-        "contex" => ["require" => 1, "max" => 5000, "min" => 1]
+        "contex" => ["require" => 1, "max" => 10000, "min" => 1],
+        "category"=>["require" => 1],
 
 
 
@@ -57,7 +58,8 @@ if (isset($_POST["submit"])) {
             "title" => $_POST['title'],
             "content" => $_POST['contex'],
             "image" => $img_path,
-            "user_id" => $_SESSION['user']['id']
+            "user_id" => $_SESSION['user']['id'],
+            "category_id" => $_POST['category'],
         ]);
 
 

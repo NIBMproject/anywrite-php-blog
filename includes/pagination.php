@@ -1,6 +1,6 @@
 
 <?php
-
+// session_start();
 require_once("db.php");
 class Pagination{
 
@@ -31,8 +31,14 @@ class Pagination{
 		// echo $this->currentStartLocation;
 
 		if($category == 0){
-			$sqlq = "SELECT * FROM {$this->tableName} ORDER BY createAt DESC LIMIT {$this->currentStartLocation},{$this->limit}";
-			$this->pageCount = ceil(($db->getDataCountTable($this->tableName)/$this->limit));
+			if($q != ""){
+				$sqlq = "SELECT * FROM {$this->tableName} WHERE title LIKE '%{$q}%' ORDER BY createAt DESC LIMIT {$this->currentStartLocation},{$this->limit}";
+				$this->pageCount = ceil(($db->queryExecute($sqlq)->num_rows)/$this->limit);
+			}else{
+				$sqlq = "SELECT * FROM {$this->tableName} ORDER BY createAt DESC LIMIT {$this->currentStartLocation},{$this->limit}";
+				$this->pageCount = ceil(($db->getDataCountTable($this->tableName)/$this->limit));
+			}
+
 		}else{
 			$sqlq = "SELECT * FROM {$this->tableName} WHERE category_id = '{$category}' ORDER BY createAt DESC LIMIT {$this->currentStartLocation},{$this->limit}";
 			$this->pageCount = ceil(($db->getDataCount($this->tableName,"category_id",$category)/$this->limit));
@@ -40,9 +46,6 @@ class Pagination{
 
 		$r = $db->queryExecute($sqlq);
 		$this->lastPage = $this->pageCount;
-		// while($data = $r->fetch_assoc()){
-		// 	echo $data['id'].'-'.$data['title']."<br>";
-		// }
 		return $r;
 	}
 
@@ -50,23 +53,23 @@ class Pagination{
 		if($this->backPage < 1){
 			$bp = "";
 		}else{
-			$bp = "<a class='btn' href='?page=home&p={$this->backPage}'>Back</a>";
+			$bp = "<a class='btn' href='?page=home&p={$this->backPage}&c={$_SESSION['cid']}&q='>Back</a>";
 		}
 		if($this->nextPage > $this->lastPage){
 			$np = "";
 		}else{
-			$np = "<a class='btn' href='?page=home&p={$this->nextPage}'>Next</a>";
+			$np = "<a class='btn' href='?page=home&p={$this->nextPage}&c={$_SESSION['cid']}&q='>Next</a>";
 		}
 		
 
 		
 		$links = "
 		<p>
-		<a class='btn' href='?page=home&p=1'>Frist</a>
+		<a class='btn' href='?page=home&p=1&c={$_SESSION['cid']}&q='>Frist</a>
 		{$bp}
 		{$this->pageNo} of {$this->pageCount}
 		{$np}
-		<a class='btn' href = '?page=home&p={$this->lastPage}'>Last</a>
+		<a class='btn' href = '?page=home&p={$this->lastPage}&c={$_SESSION['cid']}&q='>Last</a>
 		</p>
 		";
 

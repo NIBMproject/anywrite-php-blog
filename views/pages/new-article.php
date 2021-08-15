@@ -1,4 +1,6 @@
-<?php if ($_SESSION['user']) : ?>
+<?php 
+$db = new Db();
+if ($_SESSION['user']) : ?>
 
     <div class="container ptb-80">
         <?php if (isset($_SESSION['msg'])) {
@@ -30,20 +32,48 @@
             <div class="col-12">
                 <form action="http/newarticle.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="title">Title</label>
-                        <br>
-                        <input id="title" name="title" type="text">
-                    </div>
-
-                    <div class="row">
-                        <div class="up-img-btn">
-                            <img src="assets/img/pl.png" class="w-100" alt="" id="upimg">
-                            <div class="upload-btn">
-                                <button class="btn w-100">Select Image</button>
-                                <input type="file" name="cover" id="file" onchange="loadFile(event)" />
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="row">
+                                    <div class="up-img-btn">
+                                        <img src="assets/img/pl.png" class="w-100" alt="" id="upimg">
+                                        <div class="upload-btn">
+                                            <button class="btn w-100">Select Image</button>
+                                            <input type="file" name="cover" id="file" onchange="loadFile(event)" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <div class="row" style="margin-left:10px;margin-top: 10px;">
+                                    <div class="row">
+                                        <label for="title">Title</label>
+                                        <br>
+                                        <input id="title" name="title" type="text">
+                                    </div>
+                                    <div class="row">
+                                        <label for="category">Category</label>
+                                        <br>
+                                        <select id="category" name="category">
+                                            <?php $cate = $db->queryExecute("SELECT * FROM categories"); 
+                                            if($cate->num_rows > 0){
+                                                while($row = $cate->fetch_assoc()){
+                                                    
+                                                    echo "<option value='{$row['id']}''>{$row['name']}</option>";
+                                                    
+                                                }
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+
                     </div>
+
+
                     <!-- <textarea name="contex" id="editor" colo>
 
                 </textarea> -->
@@ -54,7 +84,7 @@
 
                             <!-- <button class="p-btn align-r m-20-0 w-100" type="submit">Submit</button> -->
                             <div class="form-group w-100">
-                                <input type="submit" value="Post" name="submit" class="btn ">
+                                <input type="submit" value="Publish" name="submit" class="btn ">
                             </div>
 
                         </div>

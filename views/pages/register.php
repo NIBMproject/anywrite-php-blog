@@ -6,7 +6,7 @@
 <?php
 // session_start();
 // print_r($_SESSION['v_errors']);
-if($_SESSION['msg']){
+if(isset($_SESSION['msg'])){
 ?>
     <div class="row">
         <div class="col-12">

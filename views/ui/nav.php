@@ -5,8 +5,11 @@
 
   <div class="nav">
     <a id="logo-link" href="#">AnyWrite</a>
+
+
+
     <a href="?page=home">Home</a>
-    <a href="#news">Top 10</a>
+    <a href="?page=top10">Top 10</a>
     <?php if (isset($_SESSION['user'])) : ?>
 
       <a href="?page=new-article">New article</a>
@@ -26,6 +29,8 @@
 
 
 
+
+
     <?php else : ?>
 
       <a href="?page=login">Login</a>
@@ -33,9 +38,29 @@
 
     <?php endif; ?>
 
-
+    <a>
+      <div class="search">
+      
+        <form method="GET" action="">
+        <input type="hidden" name="page" value="home">
+        <input type="hidden" name="p" value="1">
+        <input type="hidden" name="c" value="0">
+        <input type="text"
+          placeholder=" Search Here"
+          name="q">
+        <button type="submit">
+          <i class="fa fa-search"
+            style="font-size: 18px;">
+          </i>
+        </button>
+        </form>
+      
+      </div>
+    </a>
 
     <a href="javascript:void(0);" style="font-size: 15px" class="icon" onclick="myFunction()">&#9776;</a>
+
+
   </div>
 </div>
 

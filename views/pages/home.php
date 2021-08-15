@@ -13,21 +13,20 @@
             $util = new Util();
 
             if(isset($_GET['p']) == false && isset($_GET['c']) == false && isset($_GET['q']) == false){
+
+                $_SESSION['cid'] = 0;                
                 $r = $pg->getPageContent(1,0,"");
             }else{
-               
-                $r = $pg->getPageContent($_GET['p'],$_GET['c'],$_GET['q']);
+                
+                $_SESSION['cid'] = $_GET['c'];                
+                $r = $pg->getPageContent($_GET['p'],$_SESSION['cid'],$_GET['q']);
                 
             }
 
-            // $r = $pg->getPageContent();
-            // $r =  $db->queryExecute("select * from article order by createAt desc;");
 
             ?>
 
-            <div class="row">
-                <input type="text" name="">
-            </div>
+
 
             <?php
             if ($r->num_rows > 0) {
@@ -45,8 +44,8 @@
                         <h2> <?php echo $row['title']; ?></h2>                        
                         <img class="article-image" src=" <?php echo $row['image']; ?>" /> 
                         <div class="row">
-                            <p><i class="fa fa-eye" aria-hidden="true"></i> 0 | <i class="fa fa-comment" aria-hidden="true"></i> 0
-                            <a href="#" class="btn article-btn">Read</a></p>
+                            <p><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $db->findDataById("article",$row['id'],"views"); ?> | <i class="fa fa-comment" aria-hidden="true"></i> 0
+                            <a href="?page=read-article&id=<?php echo $row['id']; ?>" class="btn article-btn">Read</a></p>
                         </div>                      
                         
                     </div>
