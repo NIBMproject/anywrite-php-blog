@@ -37,7 +37,7 @@ if (isset($_POST["submit"])) {
         [
             'maxsize' => 5,
             'types' => ['png', 'jpg', 'jpeg'],
-            "require" => 1
+            
         ],
         "Image"
     );
@@ -45,33 +45,26 @@ if (isset($_POST["submit"])) {
 
     if ($vali->isok == true) {
 
-        //save image
 
-        if ($_FILES['cover']['name'] == "") {
-            $img_path =  "assets/img/pl.png";
-        } else {
-            
+        if ($_FILES['cover']['name'] != "") {
             $d = date("Y-m-d h:i:sa");
             $img_path = 'assets/img/articles/' . $d . $_SESSION['user']['email'] . "." . explode("/", $_FILES['cover']['type'])[1];
             $fo->newFile($_FILES['cover'], '../assets/img/articles/', $d . $_SESSION['user']['email']);
+            $db->updateCellById("article",$_POST['id'],"image",$img_path);
         }
 
+        $db->updateCellById("article",$_POST['id'],"title",$_POST['title']);
+        $db->updateCellById("article",$_POST['id'],"category_id",$_POST['category']);
+        $db->updateCellById("article",$_POST['id'],"content",$_POST['contex']);
 
-        $db->insert("article", [
-            "title" => $_POST['title'],
-            "content" => $_POST['contex'],
-            "image" => $img_path,
-            "user_id" => $_SESSION['user']['id'],
-            "category_id" => $_POST['category'],
-        ]);
 
 
         
         $_SESSION['msg'] = ['',[]];
-        header("Location: ../?page=home");
+        header("Location: ../?page=my-article");
     } else {
         $_SESSION['msg'] = ['error', $vali->errorList];
-        header("Location: ../?page=new-article");
+        header("Location: ../?page=edit-article");
     }
+
 }
-?>

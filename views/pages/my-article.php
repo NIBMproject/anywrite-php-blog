@@ -1,5 +1,6 @@
 <?php 
 $db = new Db();
+
 if ($_SESSION['user']) : ?>
 <div class="container ptb-80">
 	<div class="row">
@@ -24,12 +25,12 @@ if ($_SESSION['user']) : ?>
 								</div>
 							</div>
 							<div class="col-2">
-								<form method="post" action="http/delete-or-update-article.php">
+								<form method="post" action="http/delete-or-edit-article.php">
 									<div class="form-group">
 										<div class="row">
 											<input type="hidden" name="id" value="<?php echo $row['id'] ?>">
 											<input class="btn" name="delete" type="submit" value="Delete" style="background-color:red;"></input>
-											<input class="btn" name="update" type="submit" value="Update" style="background-color:green;"></input>
+											<input class="btn" name="update" type="submit" value="Edit" style="background-color:green;"></input>
 										</div>
 									</div>
 								</form>
