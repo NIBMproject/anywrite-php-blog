@@ -3,6 +3,10 @@
 
 <div class="container ptb-80">
 
+<?php 
+if ($_SESSION['user']) : ?>
+
+
 <?php
 // session_start();
 // print_r($_SESSION['v_errors']);
@@ -25,16 +29,16 @@ if(isset($_SESSION['msg'])){
 <?php } ?>
     <div class="row ">
         <div class="col-12">
-            <h1 class="title">Register</h1>
+            <h1 class="title">Profile</h1>
         </div>
     </div>
-    <form action="http/user_register.php" method="post" enctype="multipart/form-data">
+    <form action="http/user-update.php" method="post" enctype="multipart/form-data">
 
         <div class="row">
             <div class="col-3">
                 <div class="row">
                     <div class="up-img-btn">
-                        <img src="assets/img/up.png" class="w-100" alt="" id="upimg">
+                        <img src="<?php echo $_SESSION['user']['img_path'] ?>" class="w-100" alt="" id="upimg">
                         <div class="upload-btn">
                             <button class="btn w-100">Select Image</button>
                             <input type="file" name="myfile" id="file" onchange="loadFile(event)" />
@@ -46,21 +50,21 @@ if(isset($_SESSION['msg'])){
                 <div class="form-group">
                     <label for="name">Name</label>
                     <br>
-                    <input id="name" name="name" type="text">
+                    <input id="name" name="name" type="text" value="<?php echo $_SESSION['user']['name'] ?>">
                 </div>
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
                             <label for="email">E-mail</label>
                             <br>
-                            <input id="email" name="email" type="email">
+                            <input id="email" name="email" type="email" value="<?php echo $_SESSION['user']['email'] ?>"  readonly disabled>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
                             <label for="tp">Telephone Number</label>
                             <br>
-                            <input id="tp" name="tp" type="text">
+                            <input id="tp" name="tp" type="text" value="<?php echo $_SESSION['user']['telephone'] ?>">
                         </div>
                     </div>
                 </div>
@@ -68,7 +72,7 @@ if(isset($_SESSION['msg'])){
                 <div class="form-group">
                     <label for="addr">Address</label>
                     <br>
-                    <input id="addr" name="addr" type="text">
+                    <input id="addr" name="addr" type="text" value="<?php echo $_SESSION['user']['address'] ?>">
                 </div>
                 <div class="row">
                     <div class="col-6">
@@ -77,7 +81,8 @@ if(isset($_SESSION['msg'])){
                             <br>
                             <!-- <input id="email" name="email" placeholder="jhon@abc.com" type="email"> -->
                             <select id="utype" name="utype" disabled>
-                                <option value="1">Writer</option>                                
+                                <option value="1" >Writer</option>
+                                
                             </select>
                         </div>
                     </div>
@@ -85,24 +90,7 @@ if(isset($_SESSION['msg'])){
                         <div class="form-group">
                             <label for="dob">Date Of Birth</label>
                             <br>
-                            <input id="dob" name="dob" type="date">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <br>
-                            <input id="password" name="password" type="password">
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="c-password">Confirm Password</label>
-                            <br>
-                            <input id="c-password" name="cpassword" type="password">
+                            <input id="dob" name="dob" type="date" value="<?php echo $_SESSION['user']['dob'] ?>">
                         </div>
                     </div>
                 </div>
@@ -112,16 +100,70 @@ if(isset($_SESSION['msg'])){
 
                         <!-- <button class="p-btn align-r m-20-0 w-100" type="submit">Submit</button> -->
                         <div class="form-group w-100">
-                            <input type="submit" value="Submit" name="submit" class="btn ">
+                            <input type="submit" value="Update" name="submit" class="btn ">
                         </div>
 
                     </div>
 
                 </div>
 
+
+
             </div>
         </div>
     </form>
+    <div class="row">
+        <div class="col-3">
+            <p></p>
+        </div>
+        <div class="col-9">
+            <hr>
+            <div class="row ">
+                <div class="col-12">
+                    <h1 class="title">Change Password</h1>
+                </div>
+            </div>
+            <form action="http/change-password.php" method="POST">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="password">Old Password</label>
+                            <br>
+                            <input id="password" name="old-password" type="password">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="password">New Password</label>
+                            <br>
+                            <input id="password" name="password" type="password">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="c-password">Confirm New Password</label>
+                            <br>
+                            <input id="c-password" name="cpassword" type="password">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 align-r">
+
+                        
+                        <div class="form-group w-100">
+                            <input type="submit" value="Change Password" name="submit" class="btn ">
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
 </div>
 
 <script>
@@ -138,5 +180,12 @@ if(isset($_SESSION['msg'])){
         x.style.display = "none";
     }
 </script>
+
+
+<?php else : ?>
+
+    <h1>Please Log in</h1>
+
+<?php endif; ?>
 
 

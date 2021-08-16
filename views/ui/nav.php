@@ -21,7 +21,7 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-          <a href="#">Profile</a>
+          <a href="?page=profile">Profile</a>
           <a href="?page=my-article">My article</a>
           <a href="http/log_out.php">Logout</a>
         </div>

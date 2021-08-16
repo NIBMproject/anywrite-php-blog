@@ -27,7 +27,6 @@ if (isset($_POST["submit"])) {
         "email" => ["require" => 1, "max" => 200, "unique" => ['user','email']],
         "tp" => ["require" => 1, "max" => 15],
         "addr" => ["require" => 1, "max" => 250],
-        "utype" => ["require" => 1],
         "dob" => ["require" => 1],
         "password" => ["require" => 1],
         "cpassword" => ["equalTo" => "password"],
@@ -55,6 +54,7 @@ if (isset($_POST["submit"])) {
             $img_path =  "assets/img/up.png";
         } else {
             $img_path = 'assets/img/profiles/' . $_POST["email"] . "." . explode("/", $_FILES['myfile']['type'])[1];
+            $fo->newFile($_FILES['myfile'], '../assets/img/profiles/', $_POST['email']);
         }
 
         //insert to db
@@ -63,7 +63,7 @@ if (isset($_POST["submit"])) {
             "email" => $_POST['email'],
             "telephone" => $_POST['tp'],
             "address" => $_POST['addr'],
-            "user_type" => $_POST['utype'],
+            "user_type" => 1,
             "dob" => $_POST['dob'],
             "password" =>  password_hash($_POST['password'], PASSWORD_DEFAULT),
             "join_date" => date("Y/m/d"),
@@ -71,7 +71,7 @@ if (isset($_POST["submit"])) {
         ]);
 
 
-        $fo->newFile($_FILES['myfile'], '../assets/img/profiles/', $_POST['email']);
+        
         $_SESSION['msg'] = ['success',['Hi! your account is created. enter email and password for login']];
         header("Location: ../?page=login");
 
