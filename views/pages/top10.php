@@ -1,6 +1,6 @@
 
 <div class="container ptb-80">
-   <div class="row">
+   <div class="row" >
        <div class="col-8">
          <?php
           $db = new Db();
@@ -23,7 +23,7 @@
                         <img class="article-image" src=" <?php echo $row['image']; ?>" /> 
                         <div class="row">
                             <p><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $db->findDataById("article",$row['id'],"views"); ?> | <i class="fa fa-comment" aria-hidden="true"></i> 0
-                            <a href="?page=read-article&id=<?php echo $row['id']; ?>" class="btn article-btn">Read</a></p>
+                            <a href="/http/read-article.php?id=<?php echo $row['id']; ?>" class="btn article-btn">Read</a></p>
                         </div>                      
                         
                     </div>
@@ -31,8 +31,8 @@
             <?php }
             }; ?>
        </div>
-       <div class="col-4">
+<!--        <div class="col-4">
            ads
-       </div>
+       </div> -->
    </div>
 </div>

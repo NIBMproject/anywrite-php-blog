@@ -87,6 +87,11 @@ class Db
         $r = $this->conn->query("UPDATE {$table} SET {$col} = {$value} WHERE id = {$id}");
         return $r;
     }
+
+    public function deleteRowById($table,$id){
+        $r = $this->conn->query("DELETE  FROM {$table} WHERE id = {$id}");
+        return $r;
+    }
 }
 
  

@@ -3,8 +3,6 @@
 $db = new Db();
 $util = new Util();
 if(isset($_GET['id'])){
-	$oldview = $db->findDataById("article",$_GET['id'],"views");
-	$db->updateCellById("article",$_GET['id'],"views",$oldview+1);
 	$data = $db->findRowById("article",$_GET['id']);
 }
 ?>
