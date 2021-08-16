@@ -55,6 +55,7 @@ if (isset($_POST["submit"])) {
             $img_path =  "assets/img/up.png";
         } else {
             $img_path = 'assets/img/profiles/' . $_POST["email"] . "." . explode("/", $_FILES['myfile']['type'])[1];
+            $fo->newFile($_FILES['myfile'], '../assets/img/profiles/', $_POST['email']);
         }
 
         //insert to db
@@ -71,7 +72,7 @@ if (isset($_POST["submit"])) {
         ]);
 
 
-        $fo->newFile($_FILES['myfile'], '../assets/img/profiles/', $_POST['email']);
+        
         $_SESSION['msg'] = ['success',['Hi! your account is created. enter email and password for login']];
         header("Location: ../?page=login");
 
