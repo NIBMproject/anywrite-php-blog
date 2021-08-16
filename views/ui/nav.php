@@ -22,7 +22,7 @@
         </button>
         <div class="dropdown-content">
           <a href="#">Profile</a>
-          <a href="#">My article</a>
+          <a href="?page=my-article">My article</a>
           <a href="http/log_out.php">Logout</a>
         </div>
       </div>

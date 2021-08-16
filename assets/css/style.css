@@ -547,9 +547,11 @@ label {
   text-align: center;
 }
 .article-user-image{
-  width: 80%;
+  width: 6rem;
   padding: 10px;
   border-radius: 50px;
+  height: 6rem;
+  object-fit: cover;
 }
 .article-user-data{
   padding: 15px 10px 10px 0px;

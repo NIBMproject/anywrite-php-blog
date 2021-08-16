@@ -9,4 +9,12 @@ class Fo
             return move_uploaded_file($temp, $to . $name . "." . explode("/", $file['type'])[1]);
         }
     }
+
+    public function deleteFile($path){
+        if(file_exists("../".$path)){
+            unlink("../".$path);
+        }else{
+            echo "no file";
+        }
+    }
 }
