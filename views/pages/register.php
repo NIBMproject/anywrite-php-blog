@@ -76,9 +76,8 @@ if(isset($_SESSION['msg'])){
                             <label for="utype">User type</label>
                             <br>
                             <!-- <input id="email" name="email" placeholder="jhon@abc.com" type="email"> -->
-                            <select id="utype" name="utype">
-                                <option value="1">Writer</option>
-                                <option value="2">Business</option>
+                            <select id="utype" name="utype" disabled>
+                                <option value="1">Writer</option>                                
                             </select>
                         </div>
                     </div>
