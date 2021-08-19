@@ -83,6 +83,20 @@ class Pagination{
 
 	}
 
+	public function commentPaging($aid,$l){
+		$data = array();
+		// $p = array();
+		$r = $db->queryExecute("SELECT * FROM comment ");
+		if($r->num_rows >0){
+			while($row = $r->fetch_assoc()){
+				array_push($data, $row);
+			}
+		// $data = array_chunk($p,$l);
+		}
+
+		return $data;
+	}
+
 
 }
 

@@ -4,7 +4,7 @@ class Db
 {
     private $host = "localhost";
     private $user = "root";
-    private $password = "1234";
+    private $password = "";
     private $db = "anywrite";
 
     private $conn;
@@ -73,6 +73,7 @@ class Db
 
     public function findDataById($table,$id,$col){
         $r = $this->conn->query("SELECT {$col} FROM {$table} WHERE id = '{$id}';");
+
         $data = $r->fetch_assoc();
         return $data[$col];
     }
@@ -98,7 +99,9 @@ class Db
 // test run 
 
 // $db = new Db();
-// $db->insert("user", [
-//     "name" => "sanda",
-//     "email" => "sanda@s.com",
-// ]);
+// // $db->insert("user", [
+// //     "name" => "sanda",
+// //     "email" => "sanda@s.com",
+// // ]);
+
+// echo $db->findDataById("user",53,"name");
