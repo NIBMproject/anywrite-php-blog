@@ -11,7 +11,7 @@
 			<br>
 			<h3>Project Name : AnyWrite</h3>
 			<h3>System type : Blog publishing system</h3>
-			<h3>Live site on 000webhost <a href="https://anywriteblog.000webhostapp.com/">https://anywriteblog.000webhostapp.com/</a></h3>
+			
 			<br>
 			<h2><u>Contributors</u></h2>
 			<ul>
