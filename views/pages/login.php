@@ -2,7 +2,7 @@
 
     <?php
 
-    if (isset($_SESSION)) {
+    if (isset($_SESSION['msg'])) {
     ?>
         <div class="login-form">
             <div class="row">
