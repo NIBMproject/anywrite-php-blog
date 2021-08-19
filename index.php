@@ -31,7 +31,6 @@ $title = "AnyWrite | " . $page;
     // echo "<br><br>";
     include_once('views/pages/' . $page . '.php');
 
-    include_once('views/ui/footer.php');
     ?>
 </body>
 

@@ -14,7 +14,7 @@ if ($_SESSION['user']) : ?>
 						?>
 						<div class="row" style="padding:10px ; box-shadow: 0px 0px 5px #aaaaaa; border-radius: 4px;">
 							<div class="col-4">
-								<img class="w-100" style="height: 12rem; border-radius: 4px;" src="<?php echo$row['image']?>">
+								<img class="w-100" style=" object-fit: cover; height: 12rem; border-radius: 4px;" src="<?php echo$row['image']?>">
 							</div>
 							<div class="col-6">
 								<div class="row" style="padding: 0px 10px 10px 10px;">

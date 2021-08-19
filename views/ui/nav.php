@@ -37,7 +37,7 @@
       <a href="?page=register">Sign up</a>
 
     <?php endif; ?>
-
+    <a href="?page=about-us">About Us</a>
     <a>
       <div class="search">
       

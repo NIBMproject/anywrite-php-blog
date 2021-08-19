@@ -44,7 +44,7 @@
                         <h2> <?php echo $row['title']; ?></h2>                        
                         <img class="article-image" src=" <?php echo $row['image']; ?>" /> 
                         <div class="row">
-                            <p><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $row['views'] ?> | <i class="fa fa-comment" aria-hidden="true"></i> 0
+                            <p><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $row['views'] ?> | <i class="fa fa-comment" aria-hidden="true"></i> <?php echo $db->getDataCount("comment","articleId",$row['id']);?>
                             <a href="/http/read-article.php?id=<?php echo $row['id']; ?>" class="btn article-btn">Read</a></p>
                         </div>                      
                         

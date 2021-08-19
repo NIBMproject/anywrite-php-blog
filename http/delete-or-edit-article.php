@@ -13,6 +13,7 @@ if(isset($_SESSION['user'])){
 			$img = $db->findDataById("article",$_POST['id'],"image");
 			$fo->deleteFile($img);
 			$db->deleteRowById("article",$_POST['id']);
+			$db->queryExecute("DELETE FROM comment WHERE articleId = {$_POST['id']}");
 		}
 		header("Location: ../?page=my-article");
 	}
