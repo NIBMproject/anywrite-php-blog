@@ -48,9 +48,9 @@ if (isset($_POST["submit"])) {
 
         if ($_FILES['cover']['name'] != "") {
             $d = date("Y-m-d h:i:sa");
-            $img_path = 'assets/img/articles/' . $d . $_SESSION['user']['email'] . "." . explode("/", $_FILES['cover']['type'])[1];
-            $fo->newFile($_FILES['cover'], '../assets/img/articles/', $d . $_SESSION['user']['email']);
-            $db->updateCellById("article",$_POST['id'],"image",$img_path);
+            $fileName = sha1($d . $_SESSION['user']['email']);
+            $img_path = 'assets/img/articles/' .$fileName. "." . explode("/", $_FILES['cover']['type'])[1];
+            $fo->newFile($_FILES['cover'], '../assets/img/articles/', $fileName);
         }
 
         $db->updateCellById("article",$_POST['id'],"title",$_POST['title']);

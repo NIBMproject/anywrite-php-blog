@@ -53,8 +53,9 @@ if (isset($_POST["submit"])) {
         if ($_FILES['myfile']['name'] == "") {
             $img_path =  "assets/img/up.png";
         } else {
-            $img_path = 'assets/img/profiles/' . $_POST["email"] . "." . explode("/", $_FILES['myfile']['type'])[1];
-            $fo->newFile($_FILES['myfile'], '../assets/img/profiles/', $_POST['email']);
+            $fileName = sha1($_POST["email"]);
+            $img_path = 'assets/img/profiles/' .$fileName. "." . explode("/", $_FILES['myfile']['type'])[1];
+            $fo->newFile($_FILES['myfile'], '../assets/img/profiles/', $fileName);
         }
 
         //insert to db
