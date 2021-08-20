@@ -52,8 +52,9 @@ if (isset($_POST["submit"])) {
         } else {
             
             $d = date("Y-m-d h:i:sa");
-            $img_path = 'assets/img/articles/' . $d . $_SESSION['user']['email'] . "." . explode("/", $_FILES['cover']['type'])[1];
-            $fo->newFile($_FILES['cover'], '../assets/img/articles/', $d . $_SESSION['user']['email']);
+            $fileName = sha1($d . $_SESSION['user']['email']);
+            $img_path = 'assets/img/articles/' .$fileName. "." . explode("/", $_FILES['cover']['type'])[1];
+            $fo->newFile($_FILES['cover'], '../assets/img/articles/', $fileName);
         }
 
 
