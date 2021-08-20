@@ -43,6 +43,7 @@ if (isset($_POST["submit"])) {
             $fileName = sha1($_POST["email"]);
             $img_path = 'assets/img/profiles/' .$fileName. "." . explode("/", $_FILES['myfile']['type'])[1];
             $fo->newFile($_FILES['myfile'], '../assets/img/profiles/', $fileName);
+            $db->updateCellById("user",$_SESSION['user']['id'],"img_path",$img_path);
         }
 
         $db->updateCellById("user",$_SESSION['user']['id'],"name",$_POST['name']);
